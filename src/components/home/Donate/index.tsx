@@ -1,7 +1,7 @@
 import { Grupo, Grupo2 } from "@/assets";
 import { DonateContainer } from "./styles";
 
-import { Section, Carousel } from "@/components";
+import { Section } from "@/components";
 import { theme } from "@/styles/theme";
 import EmblaCarousel from "@/components/generics/EmblaCarouselLib";
 import { EmblaOptionsType } from "embla-carousel";
