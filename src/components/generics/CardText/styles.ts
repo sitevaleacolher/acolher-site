@@ -6,7 +6,14 @@ export const CardContainer = styled.a`
   border-radius: 12px;
   padding: 24px;
   margin: 16px 0;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.16);
+`;
+
+export const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
 `;
 
 export const Title = styled(Typography).attrs({ $variant: "h2" })`

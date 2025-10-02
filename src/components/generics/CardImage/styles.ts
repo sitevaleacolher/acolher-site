@@ -21,10 +21,14 @@ export const ImgStyled = styled(Image)`
   object-fit: cover;
   width: 450px;
   height: 320px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
 
   border-radius: 20px;
-  padding: 8px;
+
+  ${({ theme }) => theme.media.tablet} {
+    width: 90%;
+    height: 120px;
+  }
 `;
 
 export const TextWrapper = styled.div`
@@ -33,6 +37,10 @@ export const TextWrapper = styled.div`
 
   gap: 8px;
   width: 30%;
+
+  ${({ theme }) => theme.media.tablet} {
+    width: 90%;
+  }
 `;
 
 export const Title = styled(Typography).attrs({ $variant: "h2" })`
@@ -46,6 +54,4 @@ export const Title = styled(Typography).attrs({ $variant: "h2" })`
 
 export const Content = styled(Typography).attrs({ $variant: "p" })`
   color: ${({ theme }) => theme.colors.gray[700]};
-
-innerDan
 `;

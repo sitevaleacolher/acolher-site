@@ -18,6 +18,10 @@ export const FooterContent = styled.div`
 
   padding: 12px 64px 0px 64px;
   background-color: ${({ theme }) => theme.colors.primary[600]};
+
+  ${({ theme }) => theme.media.tablet} {
+    padding: 12px 16px;
+  }
 `;
 
 export const ContactList = styled.div`
@@ -72,6 +76,10 @@ export const Address = styled.address`
   color: #ccc;
   text-align: start;
   min-width: 40%;
+
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 8px;
+  }
 `;
 
 export const Rights = styled.span`
@@ -79,4 +87,8 @@ export const Rights = styled.span`
   color: #ccc;
   text-align: end;
   min-width: 40%;
+
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 8px;
+  }
 `;

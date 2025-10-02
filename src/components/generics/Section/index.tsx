@@ -21,8 +21,10 @@ export default function Section({
 }: SectionProps) {
   return (
     <SectionWrapper $backgroundColor={backgroundColor} id={id}>
-      <Title $color={titleColor}>{title}</Title>
-      <Subtitle $color={subtitleColor}>{subtitle}</Subtitle>
+      <div>
+        <Title $color={titleColor}>{title}</Title>
+        <Subtitle $color={subtitleColor}>{subtitle}</Subtitle>
+      </div>
       {children}
     </SectionWrapper>
   );

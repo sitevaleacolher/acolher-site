@@ -1,4 +1,4 @@
-import { CardContainer, Content, Title } from "./styles";
+import { CardContainer, TextWrapper, Content, Title } from "./styles";
 
 interface CardProps {
   title: string;
@@ -18,8 +18,10 @@ export default function Card({ title, content, icon, href }: CardProps) {
       aria-label={isLink ? `Link para ${title}` : undefined}
     >
       {icon}
-      <Title>{title}</Title>
-      <Content dangerouslySetInnerHTML={{ __html: content || "" }} />
+      <TextWrapper>
+        <Title>{title}</Title>
+        <Content dangerouslySetInnerHTML={{ __html: content || "" }} />
+      </TextWrapper>
     </CardContainer>
   );
 }

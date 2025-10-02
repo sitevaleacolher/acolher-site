@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useCallback } from "react";
 import { EmblaOptionsType, EmblaCarouselType } from "embla-carousel";
 
@@ -28,8 +30,8 @@ type PropType = {
 };
 
 const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
-  const { isMobile } = useResponsive();
-  const itemsPerPage = isMobile ? 1 : 3;
+  const { isTablet } = useResponsive();
+  const itemsPerPage = isTablet ? 1 : 3;
 
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
 

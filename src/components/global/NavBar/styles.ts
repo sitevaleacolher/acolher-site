@@ -12,12 +12,14 @@ export const NavWrapper = styled.nav`
   transform: translateX(-50%);
   width: 80vw;
   z-index: 999;
-  gap: 55px;
+  gap: 3vw;
 
   height: 80px;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0px 2px 9.8px 0px rgba(0, 0, 0, 0.25);
+
+  padding: 0 16px;
 `;
 
 export const NavItens = styled.ul`
@@ -33,5 +35,9 @@ export const TypographyItem = styled(Typography)`
   &:hover {
     color: ${({ theme }) => theme.colors.primary[500]};
     text-decoration: underline;
+  }
+
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 12px;
   }
 `;

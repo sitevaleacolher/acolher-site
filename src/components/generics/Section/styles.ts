@@ -18,6 +18,10 @@ export const SectionWrapper = styled.div<SectionWrapperProps>`
     $backgroundColor || "transparent"};
 
   scroll-margin-top: 100px;
+
+  ${({ theme }) => theme.media.tablet} {
+    padding: 20px 24px 0 24px;
+  }
 `;
 
 export const Title = styled(Typography).attrs({ $variant: "h1" })<ColorProps>`
@@ -30,4 +34,5 @@ export const Subtitle = styled(Typography).attrs({
 })<ColorProps>`
   text-align: center;
   color: ${({ $color }) => $color || "#666"};
+  margin-bottom: 20px;
 `;

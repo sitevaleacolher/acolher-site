@@ -11,7 +11,15 @@ export const ContactContainer = styled.section`
 
   padding: 0 82px;
 
+  flex-wrap: wrap;
+
   & > a {
     flex: 1;
+    width: 100%;
+  }
+
+  ${({ theme }) => theme.media.tablet} {
+    padding: 0 16px;
+    gap: 8px;
   }
 `;

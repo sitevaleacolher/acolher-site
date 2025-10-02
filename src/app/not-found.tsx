@@ -80,7 +80,7 @@ export default function NotFoundPage() {
         Não encontramos a página que você procura. Mas não se preocupe, você
         pode continuar navegando.
       </Subtitle>
-      <HomeButton href="/home">Voltar para o site</HomeButton>
+      <HomeButton href="/">Voltar para o site</HomeButton>
     </Container>
   );
 }

@@ -15,7 +15,7 @@ export const typographyTheme = {
     fontFamily: "var(--font-red-hat)",
     fontWeight: 700,
     fontSize: {
-      mobile: "28px",
+      mobile: "18px",
       tablet: "32px",
       desktop: "40px",
     },
@@ -37,7 +37,7 @@ export const typographyTheme = {
     fontFamily: "var(--font-montserrat)",
     fontWeight: 500,
     fontSize: {
-      mobile: "16px",
+      mobile: "12px",
       tablet: "18px",
       desktop: "20px",
     },
