@@ -1,23 +1,31 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { ServerStyleSheet, StyleSheetManager } from "styled-components";
 
 export function useStyledComponentsRegistry() {
-  const [sheet] = useState(() => new ServerStyleSheet());
+  const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
 
-  const styledComponentsFlushEffect = () => {
-    const styles = sheet.getStyleElement();
-    (sheet.instance as any).clearTag();
-    return <>{styles}</>;
-  };
+  const styledComponentsFlushEffect = useCallback(() => {
+    const styles = styledComponentsStyleSheet.getStyleElement();
+    styledComponentsStyleSheet.instance.clearTag();
+    return styles;
+  }, [styledComponentsStyleSheet]);
 
-  const StyledComponentsRegistry = ({
-    children,
-  }: {
-    children: React.ReactNode;
-  }) => (
-    <StyleSheetManager sheet={sheet.instance}>{children}</StyleSheetManager>
+  const StyledComponentsRegistry = useCallback(
+    ({ children }: { children: React.ReactNode }) => {
+      // No cliente, não precisamos do StyleSheetManager para melhor HMR
+      if (typeof window !== "undefined") {
+        return <>{children}</>;
+      }
+
+      return (
+        <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
+          {children}
+        </StyleSheetManager>
+      );
+    },
+    [styledComponentsStyleSheet]
   );
 
   return [StyledComponentsRegistry, styledComponentsFlushEffect] as const;

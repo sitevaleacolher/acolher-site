@@ -16,6 +16,8 @@ export const SectionWrapper = styled.div<SectionWrapperProps>`
   padding-top: 20px;
   background-color: ${({ $backgroundColor }) =>
     $backgroundColor || "transparent"};
+
+  scroll-margin-top: 100px;
 `;
 
 export const Title = styled(Typography).attrs({ $variant: "h1" })<ColorProps>`

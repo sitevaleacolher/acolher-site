@@ -41,7 +41,7 @@ export const WhatDonate = ({ id }: { id: string }) => {
       subtitle={"Aqui você encontra o que pode doar"}
       titleColor={theme.colors.primary[600]}
       subtitleColor={theme.colors.gray[600]}
-      id="id"
+      id={id}
     >
       <WhatDonateContainer>
         {cardsData.map((card, index) => (

@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useServerInsertedHTML } from "next/navigation";
 import { useStyledComponentsRegistry } from "./useStyledComponentsRegistry";
 
@@ -11,7 +12,10 @@ export function StyledComponentsRegistry({
   const [StyledComponentsRegistry, styledComponentsFlushEffect] =
     useStyledComponentsRegistry();
 
-  useServerInsertedHTML(() => <>{styledComponentsFlushEffect()}</>);
+  // Só usar no servidor
+  if (typeof window === "undefined") {
+    useServerInsertedHTML(() => <>{styledComponentsFlushEffect()}</>);
+  }
 
   return <StyledComponentsRegistry>{children}</StyledComponentsRegistry>;
 }

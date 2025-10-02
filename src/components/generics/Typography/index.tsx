@@ -1,4 +1,7 @@
 // components/Typography.tsx
+
+"use client";
+
 import styled, { css } from "styled-components";
 import { Theme } from "@/styles/theme";
 

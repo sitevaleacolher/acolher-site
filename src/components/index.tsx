@@ -8,6 +8,7 @@ export { default as Card } from "./generics/CardText";
 export { default as CardImage } from "./generics/CardImage";
 export { default as Section } from "./generics/Section";
 export { default as SlideShow } from "./generics/SlideShow";
+export { default as Carousel } from "./generics/Carousel";
 
 // HOME COMPONENTS
 export { default as AboutUs } from "./home/AboutUs";

@@ -29,4 +29,9 @@ export const TypographyItem = styled(Typography)`
   color: ${({ theme }) => theme.colors.secondary[700]};
   text-transform: uppercase;
   font-size: 16px;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary[500]};
+    text-decoration: underline;
+  }
 `;
