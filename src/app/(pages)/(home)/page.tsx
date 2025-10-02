@@ -1,6 +1,13 @@
 "use client";
 
-import { AboutUs, Donate, Footer, NavBar, WhatDonate } from "@/components";
+import {
+  AboutUs,
+  Contact,
+  Donate,
+  Footer,
+  NavBar,
+  WhatDonate,
+} from "@/components";
 
 import { HomeContainer } from "./styles";
 
@@ -11,7 +18,8 @@ export default function Home() {
       <AboutUs id="about-us" />
       <Donate id="donate" />
       <WhatDonate id="what-donate" />
-      <Footer id="contato" />
+      <Contact id="contato" />
+      <Footer id="direitos" />
     </HomeContainer>
   );
 }

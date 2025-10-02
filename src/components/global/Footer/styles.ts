@@ -16,7 +16,7 @@ export const FooterContent = styled.div`
   gap: 24px;
   width: 100%;
 
-  padding: 64px 64px 12px 64px;
+  padding: 12px 64px 0px 64px;
   background-color: ${({ theme }) => theme.colors.primary[600]};
 `;
 
@@ -54,9 +54,9 @@ export const DataWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   width: 100%;
-  margin-bottom: 32px;
+  margin-bottom: 12px;
 `;
 
 export const ImageWrapper = styled.div`

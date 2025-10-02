@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Typography from "../Typography";
 
-export const CardContainer = styled.div`
+export const CardContainer = styled.a`
   background: ${({ theme }) => theme.colors.gray[0]};
   border-radius: 12px;
   padding: 24px;

@@ -3,8 +3,11 @@
 import { Logo } from "@/assets";
 import { NavWrapper, NavItens, TypographyItem } from "./styles";
 import Image from "next/image";
+import { useResponsive } from "@/hooks/useResponsive";
 
 export const NavBar = () => {
+  const { isMobile } = useResponsive();
+
   const itensList = [
     { label: "Sobre Nós", sectionId: "about-us" },
     { label: "Onde Doar", sectionId: "donate" },
@@ -21,6 +24,16 @@ export const NavBar = () => {
       }
     }
   };
+
+  if (isMobile) {
+    return (
+      <NavWrapper>
+        <NavItens>
+          <Image src={Logo} alt="Logo" width={75} height={75} />
+        </NavItens>
+      </NavWrapper>
+    );
+  }
 
   return (
     <NavWrapper>
