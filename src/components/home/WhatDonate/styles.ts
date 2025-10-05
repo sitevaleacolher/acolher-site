@@ -8,6 +8,11 @@ export const WhatDonateContainer = styled.section`
 
   margin-top: 64px;
   gap: 80px;
+
+  ${({ theme }) => theme.media.tablet} {
+    margin-top: 32px;
+    gap: 32px;
+  }
 `;
 
 export const ItemContainer = styled.div`

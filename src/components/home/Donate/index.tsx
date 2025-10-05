@@ -1,38 +1,49 @@
-import { Grupo, Grupo2 } from "@/assets";
-import { DonateContainer } from "./styles";
+import {
+  ItemContainer,
+  LocalAddress,
+  LocalImage,
+  LocalLink,
+  LocalTitle,
+  Icon,
+} from "./styles";
 
 import { Section } from "@/components";
 import { theme } from "@/styles/theme";
 import EmblaCarousel from "@/components/generics/EmblaCarouselLib";
 import { EmblaOptionsType } from "embla-carousel";
+import { Grupo, MapsIcon } from "@/assets";
 
 export const Donate = ({ id }: { id: string }) => {
-  const images = ["/img1.jpg", "/img2.jpg", "/img3.jpg", "/img4.jpg"];
-
-  const cardsData = [
+  const locaisDoacao = [
     {
-      title: "Itens de cesta básica",
-      subtitle:
-        "Arroz, feijão, açucar, óleo, fubá, macarrão, canjiquinha, pó de café, farinha de mandioca, sal, biscoito e leite.",
-      image: Grupo,
+      title: "Centro Comunitário Esperança",
+      link: "https://www.google.com/maps/search/?api=1&query=Av.+Monsenhor+Rafael,+285,+Jhon+Kenedy,+Timóteo",
+      address: "Av. Monsenhor Rafael, 285, Jhon Kenedy, Timóteo",
+      imagem: Grupo,
     },
     {
-      title: "Produtos de higiene pessoal",
-      subtitle:
-        "Absorvente, fralda infantil e geriatrica, sabonete, escova de dente, creme dental, papel higiênico,luva, touca descartável.",
-      image: Grupo2,
+      title: "Igreja São João Batista",
+      link: "https://www.google.com/maps/search/?api=1&query=Av.+Paulista,+São+Paulo,+SP",
+      address: "Av. Monsenhor Rafael, 285, Jhon Kenedy, Timóteo",
+      imagem: Grupo,
     },
     {
-      title: "Produtos de limpeza",
-      subtitle:
-        "Caridade, empatia, humildade, respeito e solidariedade a todos que carecem de ajuda.",
-      image: Grupo,
+      title: "Associação Mãos Solidárias",
+      link: "https://www.google.com/maps/search/?api=1&query=Av.+Paulista,+São+Paulo,+SP",
+      address: "Av. Monsenhor Rafael, 285, Jhon Kenedy, Timóteo",
+      imagem: Grupo,
     },
     {
-      title: "Qualquer quantia em dinheiro",
-      subtitle:
-        "Você também pode doar qualquer quantia em dinheiro escaneando o Código QR ao lado, ou doando pela chave PIX abaixo.<br/> Nome: <strong>RAUL PIMENTA DA CUNHA PEREIRA</strong> <br/>Chave:<strong> acolhervaledoaco@gmail.com</strong>",
-      image: Grupo2,
+      title: "Casa de Apoio Vida Nova",
+      link: "https://www.google.com/maps/search/?api=1&query=Av.+Paulista,+São+Paulo,+SP",
+      address: "Av. Monsenhor Rafael, 285, Jhon Kenedy, Timóteo",
+      imagem: Grupo,
+    },
+    {
+      title: "Projeto Semeando Esperança",
+      link: "https://www.google.com/maps/search/?api=1&query=Av.+Paulista,+São+Paulo,+SP",
+      address: "Av. Monsenhor Rafael, 285, Jhon Kenedy, Timóteo",
+      imagem: Grupo,
     },
   ];
 
@@ -49,7 +60,28 @@ export const Donate = ({ id }: { id: string }) => {
       backgroundColor={theme.colors.primary[600]}
       id={id}
     >
-      <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+      <EmblaCarousel
+        slides={locaisDoacao.map((local) => (
+          <ItemContainer key={local.title}>
+            <LocalImage src={local.imagem} alt={local.title} />
+            <LocalTitle>{local.title}</LocalTitle>
+            <LocalAddress>{local.address}</LocalAddress>
+            <LocalLink
+              href={local.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon
+                src={MapsIcon}
+                alt={`Icone do maps leva para ${local.title}`}
+                height={32}
+              />
+              {"Ver no Google Maps"}
+            </LocalLink>
+          </ItemContainer>
+        ))}
+        options={OPTIONS}
+      />
     </Section>
   );
 };

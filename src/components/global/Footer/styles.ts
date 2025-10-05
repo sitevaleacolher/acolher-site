@@ -61,13 +61,14 @@ export const DataWrapper = styled.div`
   align-items: center;
   width: 100%;
   margin-bottom: 12px;
+
+  gap: 16px;
 `;
 
 export const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;
 `;
 
 export const Address = styled.address`

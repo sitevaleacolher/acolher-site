@@ -1,13 +1,26 @@
-import { CardContainer, TextWrapper, Content, Title } from "./styles";
+import {
+  CardContainer,
+  TextWrapper,
+  Content,
+  Title,
+  ImageStyles,
+} from "./styles";
 
 interface CardProps {
   title: string;
-  icon?: React.ReactNode;
+  icon?: string;
+  iconSizes?: number;
   content: React.ReactNode;
   href?: string;
 }
 
-export default function Card({ title, content, icon, href }: CardProps) {
+export default function Card({
+  title,
+  content,
+  icon,
+  href,
+  iconSizes,
+}: CardProps) {
   const isLink = Boolean(href);
   return (
     <CardContainer
@@ -16,8 +29,15 @@ export default function Card({ title, content, icon, href }: CardProps) {
       target={isLink ? "_blank" : undefined}
       rel={isLink ? "noopener noreferrer" : undefined}
       aria-label={isLink ? `Link para ${title}` : undefined}
+      style={{ cursor: isLink ? "pointer" : "auto" }}
     >
-      {icon}
+      {icon && (
+        <ImageStyles
+          src={icon}
+          alt={`Icone ${title}`}
+          height={iconSizes || 32}
+        />
+      )}
       <TextWrapper>
         <Title>{title}</Title>
         <Content dangerouslySetInnerHTML={{ __html: content || "" }} />

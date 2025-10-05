@@ -19,6 +19,13 @@ export const SectionWrapper = styled.div<SectionWrapperProps>`
 
   scroll-margin-top: 100px;
 
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
   ${({ theme }) => theme.media.tablet} {
     padding: 20px 24px 0 24px;
   }

@@ -54,4 +54,8 @@ export const Title = styled(Typography).attrs({ $variant: "h2" })`
 
 export const Content = styled(Typography).attrs({ $variant: "p" })`
   color: ${({ theme }) => theme.colors.gray[700]};
+
+  ${({ theme }) => theme.media.tablet} {
+    text-align: center;
+  }
 `;

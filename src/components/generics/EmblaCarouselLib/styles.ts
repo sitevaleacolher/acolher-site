@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface EmblaProps {
-  itemsPerPage?: number;
+  $itemsPerPage?: number;
 }
 
 export const Embla = styled.section<EmblaProps>`
@@ -14,7 +14,7 @@ export const Embla = styled.section<EmblaProps>`
   margin: auto;
   --slide-height: 19rem;
   --slide-spacing: 1rem;
-  --slide-size: ${({ itemsPerPage = 3 }) => `${100 / itemsPerPage}%`};
+  --slide-size: ${({ $itemsPerPage = 3 }) => `${100 / $itemsPerPage}%`};
 `;
 
 export const EmblaViewport = styled.div`

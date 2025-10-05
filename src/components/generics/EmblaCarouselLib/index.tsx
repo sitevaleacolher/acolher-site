@@ -25,7 +25,7 @@ import {
 import { useResponsive } from "@/hooks/useResponsive";
 
 type PropType = {
-  slides: number[];
+  slides: Array<React.ReactNode>;
   options?: EmblaOptionsType;
 };
 
@@ -60,15 +60,13 @@ const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
   } = usePrevNextButtons(emblaApi, onNavButtonClick);
 
   return (
-    <Embla itemsPerPage={itemsPerPage}>
+    <Embla $itemsPerPage={itemsPerPage}>
       <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
 
       <EmblaViewport ref={emblaRef}>
         <EmblaContainer>
-          {slides.map((index) => (
-            <EmblaSlide key={index}>
-              <EmblaSlideNumber>{index + 1}</EmblaSlideNumber>
-            </EmblaSlide>
+          {slides.map((slide, index) => (
+            <EmblaSlide key={index}>{slide}</EmblaSlide>
           ))}
         </EmblaContainer>
 

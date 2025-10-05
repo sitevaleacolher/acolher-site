@@ -1,13 +1,10 @@
 "use client";
 
+import { WhatsAppIcon, InstagramIcon, MailIcon } from "@/assets";
 import { ContactContainer } from "./styles";
 
 import { Section, CardText } from "@/components";
 import { theme } from "@/styles/theme";
-
-import InstagramIcon from "@mui/icons-material/Instagram";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
 
 export const Contact = ({ id }: { id: string }) => {
   const emailSpreedsheet = "acolhervaledoaco@gmail.com";
@@ -22,18 +19,18 @@ export const Contact = ({ id }: { id: string }) => {
       title: "WhatsApp",
       content: "+55 (31) 99938-7840",
       href: `https://wa.me/${whatsaappNumberSpreedsheet}?text=${whatsappMessage}`,
-      icon: <WhatsAppIcon />,
+      icon: WhatsAppIcon,
     },
     {
       title: "Instagram",
       content: `@${instagramUsernameSpreedsheet}`,
       href: `https://www.instagram.com/${instagramUsernameSpreedsheet}/`,
-      icon: <InstagramIcon />,
+      icon: InstagramIcon,
     },
     {
       title: "Email",
       content: emailSpreedsheet,
-      icon: <MailOutlineIcon />,
+      icon: MailIcon,
       href: `mailto:${emailSpreedsheet}`,
     },
   ];
@@ -49,10 +46,11 @@ export const Contact = ({ id }: { id: string }) => {
       <ContactContainer>
         {cardsData.map((card, index) => (
           <CardText
-            key={card.title}
+            key={card.title + index}
             title={card.title}
             content={card.content}
             icon={card.icon}
+            iconSizes={45}
             href={card.href}
           />
         ))}

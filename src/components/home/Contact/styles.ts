@@ -6,18 +6,22 @@ export const ContactContainer = styled.section`
   justify-content: center;
   align-items: center;
 
-  margin-top: 64px;
+  margin-top: 32px;
   gap: 80px;
 
   padding: 0 82px;
 
-  flex-wrap: wrap;
+  width: 100%;
 
   & > a {
-    flex: 1;
     width: 100%;
   }
 
+  ${({ theme }) => theme.media.desktop} {
+    margin-top: 24px;
+    flex-direction: column;
+    gap: 8px;
+  }
   ${({ theme }) => theme.media.tablet} {
     padding: 0 16px;
     gap: 8px;
