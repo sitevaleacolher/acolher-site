@@ -32,19 +32,8 @@ export const EmblaSlide = styled.div`
   transform: translate3d(0, 0, 0);
   flex: 0 0 var(--slide-size);
   min-width: 0;
-  padding-left: var(--slide-spacing);
-`;
 
-export const EmblaSlideNumber = styled.div`
-  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
-  border-radius: 1.8rem;
-  font-size: 4rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 400px;
-  user-select: none;
+  padding-left: var(--slide-spacing);
 `;
 
 export const EmblaDots = styled.div`

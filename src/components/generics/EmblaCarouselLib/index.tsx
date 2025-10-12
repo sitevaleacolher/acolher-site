@@ -19,7 +19,6 @@ import {
   EmblaViewport,
   EmblaContainer,
   EmblaSlide,
-  EmblaSlideNumber,
   EmblaDots,
 } from "./styles";
 import { useResponsive } from "@/hooks/useResponsive";
