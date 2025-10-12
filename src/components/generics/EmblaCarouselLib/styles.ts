@@ -42,7 +42,7 @@ export const EmblaDots = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 16px;
+  padding: 32px 20px;
 
   gap: 12px;
 `;

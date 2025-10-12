@@ -12,8 +12,8 @@ interface SectionWrapperProps {
 
 export const SectionWrapper = styled.div<SectionWrapperProps>`
   width: 100%;
-  margin: 40px 0;
-  padding-top: 20px;
+  margin-top: 20px;
+  padding-top: 30px;
   background-color: ${({ $backgroundColor }) =>
     $backgroundColor || "transparent"};
 
@@ -33,6 +33,7 @@ export const SectionWrapper = styled.div<SectionWrapperProps>`
 
 export const Title = styled(Typography).attrs({ $variant: "h1" })<ColorProps>`
   text-align: center;
+  text-transform: uppercase;
   color: ${({ $color }) => $color || "#CA3A38"};
 `;
 

@@ -39,7 +39,7 @@ export const WhatDonate = ({ id }: { id: string }) => {
     <Section
       title={"O que doar?"}
       subtitle={"Aqui você encontra o que pode doar"}
-      titleColor={theme.colors.primary[600]}
+      titleColor={theme.colors.primary[1000]}
       subtitleColor={theme.colors.gray[600]}
       id={id}
     >

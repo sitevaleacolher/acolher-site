@@ -29,7 +29,7 @@ export const AboutUs = ({ id }: { id: string }) => {
     <Section
       title={"SOBRE NÓS"}
       subtitle={"Aqui você pode nos conhecer um pouco melhor"}
-      titleColor={theme.colors.primary[600]}
+      titleColor={theme.colors.primary[1000]}
       subtitleColor={theme.colors.gray[600]}
       id={id}
     >

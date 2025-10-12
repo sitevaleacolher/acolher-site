@@ -31,9 +31,12 @@ export const TextWrapper = styled.div`
   gap: 8px;
 `;
 
-export const Title = styled(Typography).attrs({ $variant: "h2" })`
-  text-align: center;
-  color: #ca3a38; // sua cor principal
+export const Title = styled(Typography).attrs({ $variant: "h3" })<{
+  $hasIcon?: boolean;
+}>`
+  text-align: ${({ $hasIcon }) => ($hasIcon ? "center" : "start")};
+  width: 100%;
+  color: ${({ theme }) => theme.colors.secondary[600]};
 `;
 
 export const Content = styled(Typography).attrs({ $variant: "p" })`

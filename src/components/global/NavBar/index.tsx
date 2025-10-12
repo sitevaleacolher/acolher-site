@@ -44,7 +44,7 @@ export const NavBar = () => {
     return (
       <NavWrapperMobile key={"navbar"}>
         <ContentWrapper>
-          <Image src={Logo} alt="Logo" width={75} height={75} />
+          <Image src={Logo} alt="Logo" width={50} height={50} />
           <IconButton
             onClick={() => setToggle(true)}
             aria-label="Abrir menu de navegação"

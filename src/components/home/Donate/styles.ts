@@ -35,17 +35,19 @@ export const LocalImage = styled(Image)`
 export const LocalTitle = styled.h3`
   margin: 16px 0 8px 0;
   font-size: 1.25rem;
-  color: ${({ theme }) => theme.colors.primary};
-  text-align: center;
-  padding: 0 12px;
+  color: ${({ theme }) => theme.colors.secondary[600]};
+  text-align: start;
+  width: 100%;
+  padding-left: 16px;
 `;
 
 export const LocalAddress = styled.address`
   font-style: normal;
   color: ${({ theme }) => theme.colors.gray[700]};
   margin-bottom: 12px;
-  text-align: center;
-  padding: 0 12px;
+  text-align: start;
+  width: 100%;
+  padding-left: 16px;
 `;
 
 export const LocalLink = styled.a`

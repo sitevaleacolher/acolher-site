@@ -57,7 +57,7 @@ export const Donate = ({ id }: { id: string }) => {
       subtitle={"Aqui você encontra os locais que coletam as doações"}
       titleColor={theme.colors.gray[0]}
       subtitleColor={theme.colors.gray[0]}
-      backgroundColor={theme.colors.primary[600]}
+      backgroundColor={theme.colors.primary[1000]}
       id={id}
     >
       <EmblaCarousel

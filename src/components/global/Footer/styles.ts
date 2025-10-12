@@ -17,7 +17,7 @@ export const FooterContent = styled.div`
   width: 100%;
 
   padding: 12px 64px 0px 64px;
-  background-color: ${({ theme }) => theme.colors.primary[600]};
+  background-color: ${({ theme }) => theme.colors.gray[0]};
 
   ${({ theme }) => theme.media.tablet} {
     padding: 12px 16px;
@@ -50,7 +50,7 @@ export const Link = styled.a`
   hight: 100px;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.secondary[300]};
+    color: ${({ theme }) => theme.colors.primary[900]};
   }
 `;
 
@@ -74,7 +74,7 @@ export const ImageWrapper = styled.div`
 export const Address = styled.address`
   font-style: normal;
   font-size: 0.95rem;
-  color: #ccc;
+  color: ${({ theme }) => theme.colors.primary[900]};;
   text-align: start;
   min-width: 40%;
 
@@ -85,7 +85,7 @@ export const Address = styled.address`
 
 export const Rights = styled.span`
   font-size: 0.95rem;
-  color: #ccc;
+  color: ${({ theme }) => theme.colors.primary[900]};;
   text-align: end;
   min-width: 40%;
 

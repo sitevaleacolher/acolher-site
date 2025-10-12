@@ -39,7 +39,7 @@ export default function Card({
         />
       )}
       <TextWrapper>
-        <Title>{title}</Title>
+        <Title $hasIcon={!!icon}>{title}</Title>
         <Content dangerouslySetInnerHTML={{ __html: content || "" }} />
       </TextWrapper>
     </CardContainer>

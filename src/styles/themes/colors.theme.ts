@@ -9,6 +9,7 @@ export const colorsTheme = {
     700: "#175A66",
     800: "#11414C",
     900: "#0A2933",
+    1000: "#0076B1",
   },
   secondary: {
     100: "#FBEAEA",

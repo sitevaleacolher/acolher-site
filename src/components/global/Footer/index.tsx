@@ -2,12 +2,10 @@ import React from "react";
 
 import {
   FooterContent,
-  ContactList,
   Address,
   Rights,
   DataWrapper,
   ImageWrapper,
-  Link,
 } from "./styles";
 import { Logo } from "@/assets";
 

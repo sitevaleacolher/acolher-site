@@ -44,11 +44,16 @@ export const TextWrapper = styled.div`
 `;
 
 export const Title = styled(Typography).attrs({ $variant: "h2" })`
-  text-align: center;
+  text-align: start;
+  width: 100%;
   color: ${({ theme }) => theme.colors.secondary[600]};
 
   strong {
     font-weight: bold;
+  }
+
+  ${({ theme }) => theme.media.tablet} {
+    text-align: center;S
   }
 `;
 
@@ -56,6 +61,6 @@ export const Content = styled(Typography).attrs({ $variant: "p" })`
   color: ${({ theme }) => theme.colors.gray[700]};
 
   ${({ theme }) => theme.media.tablet} {
-    text-align: center;
+    text-align: start;
   }
 `;

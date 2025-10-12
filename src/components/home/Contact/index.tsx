@@ -39,8 +39,9 @@ export const Contact = ({ id }: { id: string }) => {
     <Section
       title={"Contato"}
       subtitle={"Clique nos cartões para ser redirecionado e fale conosco"}
-      titleColor={theme.colors.primary[600]}
-      subtitleColor={theme.colors.gray[600]}
+      titleColor={theme.colors.gray[0]}
+      subtitleColor={theme.colors.gray[100]}
+      backgroundColor={theme.colors.primary[1000]}
       id={id}
     >
       <ContactContainer>

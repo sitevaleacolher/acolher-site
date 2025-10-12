@@ -61,7 +61,7 @@ type PropType = ComponentPropsWithRef<"button">;
 export const PrevButton: React.FC<PropType> = ({ children, ...restProps }) => (
   <EmblaButton type="button" {...restProps}>
     <EmblaButtonIcon>
-      <ArrowBackIosIcon fontSize="inherit" />
+      <ArrowBackIosIcon fontSize="large" />
     </EmblaButtonIcon>
     {children}
   </EmblaButton>
@@ -70,7 +70,7 @@ export const PrevButton: React.FC<PropType> = ({ children, ...restProps }) => (
 export const NextButton: React.FC<PropType> = ({ children, ...restProps }) => (
   <EmblaButton type="button" {...restProps}>
     <EmblaButtonIcon>
-      <ArrowForwardIosIcon fontSize="inherit" />
+      <ArrowForwardIosIcon fontSize="large" />
     </EmblaButtonIcon>
     {children}
   </EmblaButton>

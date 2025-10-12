@@ -9,7 +9,7 @@ export const ContactContainer = styled.section`
   margin-top: 32px;
   gap: 80px;
 
-  padding: 0 82px;
+  padding: 10px 82px 82px 82px;
 
   width: 100%;
 
@@ -23,7 +23,9 @@ export const ContactContainer = styled.section`
     gap: 8px;
   }
   ${({ theme }) => theme.media.tablet} {
-    padding: 0 16px;
+    margin-top: 0px;
+    padding: 16px;
+    padding-top: 0px;
     gap: 8px;
   }
 `;

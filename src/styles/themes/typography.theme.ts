@@ -2,7 +2,7 @@
 export const typographyTheme = {
   h1: {
     fontFamily: "var(--font-red-hat)",
-    fontWeight: 700,
+    fontWeight: "900 !important",
     fontSize: {
       mobile: "32px",
       tablet: "40px",
@@ -13,7 +13,7 @@ export const typographyTheme = {
   },
   h2: {
     fontFamily: "var(--font-red-hat)",
-    fontWeight: 700,
+    fontWeight: 800,
     fontSize: {
       mobile: "18px",
       tablet: "32px",
@@ -23,8 +23,8 @@ export const typographyTheme = {
     letterSpacing: "0%",
   },
   h3: {
-    fontFamily: "var(--font-montserrat)",
-    fontWeight: 400,
+    fontFamily: "var(--font-red-hat)",
+    fontWeight: 600,
     fontSize: {
       mobile: "22px",
       tablet: "26px",

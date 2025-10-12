@@ -27,11 +27,15 @@ export const EmblaButton = styled.button`
 `;
 
 export const EmblaButtonIcon = styled.div`
-  width: 35%;
-  height: 35%;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  & > svg {
+    color: ${({ theme }) => theme.colors.gray[0]};
+  }
 `;
 
 export const EmblaDot = styled.button<{ selected?: boolean }>`
