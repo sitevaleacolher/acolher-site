@@ -34,6 +34,7 @@ export const NavBar = () => {
     if (sectionId) {
       const section = document.getElementById(sectionId);
       if (section) {
+        setToggle(false);
         section.scrollIntoView({ behavior: "smooth" });
       }
     }

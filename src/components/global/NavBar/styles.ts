@@ -78,11 +78,18 @@ export const TypographyItem = styled(Typography)`
 
 export const IconButton = styled.button`
   position: absolute;
+  top: 24px;
   right: 32px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
+
+  & > svg {
+    width: 28px;
+    height: 28px;
+    color: ${({ theme }) => theme.colors.primary[600]};
+  }
 `;
 
 export const DrawerContainer = styled.div`
@@ -92,6 +99,6 @@ export const DrawerContainer = styled.div`
   justify-content: space-between;
 
   width: 100%;
-  padding: 16px;
-  gap: 16px;
+  padding: 32px;
+  gap: 32px;
 `;
