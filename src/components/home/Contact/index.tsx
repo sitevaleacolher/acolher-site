@@ -6,18 +6,64 @@ import { ContactContainer } from "./styles";
 import { Section, CardText } from "@/components";
 import { theme } from "@/styles/theme";
 
-export const Contact = ({ id }: { id: string }) => {
-  const emailSpreedsheet = "acolhervaledoaco@gmail.com";
-  const instagramUsernameSpreedsheet = "acolhervaledoaco";
+interface ContactProps {
+  id: string;
+  data: [
+    {
+      Instagram: string;
+      Email: string;
+      WhatsApp: string;
+      "Mensagem WhatsApp": string;
+    }
+  ];
+}
+
+function onlyDigits(input?: string) {
+  return (input || "").toString().replace(/\D/g, "");
+}
+
+function formatDisplayNumber(raw?: string) {
+  const digits = onlyDigits(raw);
+  const local = digits.startsWith("55") ? digits.slice(2) : digits;
+
+  if (local.length === 11) {
+    const ddd = local.slice(0, 2);
+    const part1 = local.slice(2, 7);
+    const part2 = local.slice(7);
+    return `+55 (${ddd}) ${part1}-${part2}`;
+  }
+
+  if (local.length === 10) {
+    const ddd = local.slice(0, 2);
+    const part1 = local.slice(2, 6);
+    const part2 = local.slice(6);
+    return `+55 (${ddd}) ${part1}-${part2}`;
+  }
+
+  if (!digits) return "Informação não disponível.";
+  return digits.startsWith("55") ? `+${digits}` : `+55${digits}`;
+}
+
+export const Contact = ({ id, data }: ContactProps) => {
+  console.log("Contact data:", data);
+
+  const emailSpreedsheet = data[0]?.Email || "Informação não disponível.";
+
+  const instagramUsernameSpreedsheet =
+    data[0]?.Instagram || "Informação não disponível.";
+
   const whatsappTextSpreedsheet =
-    "Olá estou vindo do site do acolher vale do aço, gostaria de saber mais sobre o projeto!";
-  const whatsaappNumberSpreedsheet = "+5531999387840";
+    data[0]?.["Mensagem WhatsApp"] || "Informação não disponível.";
+
+  const whatsappDisplay = formatDisplayNumber(data[0]?.WhatsApp);
+  const whatsaappNumberSpreedsheet =
+    `+55${data[0]?.WhatsApp}` || "Informação não disponível.";
 
   const whatsappMessage = encodeURIComponent(whatsappTextSpreedsheet);
   const cardsData = [
     {
       title: "WhatsApp",
-      content: "+55 (31) 99938-7840",
+      content: whatsappDisplay,
       href: `https://wa.me/${whatsaappNumberSpreedsheet}?text=${whatsappMessage}`,
       icon: WhatsAppIcon,
     },

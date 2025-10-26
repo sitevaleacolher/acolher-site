@@ -11,45 +11,45 @@ import { Section } from "@/components";
 import { theme } from "@/styles/theme";
 import EmblaCarousel from "@/components/generics/EmblaCarouselLib";
 import { EmblaOptionsType } from "embla-carousel";
-import { Grupo, MapsIcon } from "@/assets";
+import { MapsIcon } from "@/assets";
+import { StaticImageData } from "next/image";
 
-export const Donate = ({ id }: { id: string }) => {
-  const locaisDoacao = [
+interface DonateProps {
+  id: string;
+  data: [
     {
-      title: "Centro Comunitário Esperança",
-      link: "https://www.google.com/maps/search/?api=1&query=Av.+Monsenhor+Rafael,+285,+Jhon+Kenedy,+Timóteo",
-      address: "Av. Monsenhor Rafael, 285, Jhon Kenedy, Timóteo",
-      imagem: Grupo,
-    },
-    {
-      title: "Igreja São João Batista",
-      link: "https://www.google.com/maps/search/?api=1&query=Av.+Paulista,+São+Paulo,+SP",
-      address: "Av. Monsenhor Rafael, 285, Jhon Kenedy, Timóteo",
-      imagem: Grupo,
-    },
-    {
-      title: "Associação Mãos Solidárias",
-      link: "https://www.google.com/maps/search/?api=1&query=Av.+Paulista,+São+Paulo,+SP",
-      address: "Av. Monsenhor Rafael, 285, Jhon Kenedy, Timóteo",
-      imagem: Grupo,
-    },
-    {
-      title: "Casa de Apoio Vida Nova",
-      link: "https://www.google.com/maps/search/?api=1&query=Av.+Paulista,+São+Paulo,+SP",
-      address: "Av. Monsenhor Rafael, 285, Jhon Kenedy, Timóteo",
-      imagem: Grupo,
-    },
-    {
-      title: "Projeto Semeando Esperança",
-      link: "https://www.google.com/maps/search/?api=1&query=Av.+Paulista,+São+Paulo,+SP",
-      address: "Av. Monsenhor Rafael, 285, Jhon Kenedy, Timóteo",
-      imagem: Grupo,
-    },
+      Titulo: string;
+      "Link do endereço": string;
+      Endereço: string;
+      Imagem: string;
+    }
   ];
+}
+
+export const Donate = ({ id, data }: DonateProps) => {
+  const locaisDoacao = data.map((local) => {
+    const url = local.Imagem;
+    let imagem: string | StaticImageData = "";
+
+    if (url) {
+      const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+      if (match) {
+        const id = match[1];
+        imagem = `/api/image?id=${id}`;
+      } else {
+        imagem = url;
+      }
+    }
+
+    return {
+      title: local.Titulo,
+      link: local["Link do endereço"],
+      address: local.Endereço,
+      imagem,
+    };
+  });
 
   const OPTIONS: EmblaOptionsType = { loop: true };
-  const SLIDE_COUNT = 5;
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
   return (
     <Section
@@ -63,7 +63,12 @@ export const Donate = ({ id }: { id: string }) => {
       <EmblaCarousel
         slides={locaisDoacao.map((local) => (
           <ItemContainer key={local.title}>
-            <LocalImage src={local.imagem} alt={local.title} />
+            <LocalImage
+              src={local.imagem}
+              alt={local.title}
+              width={400}
+              height={240}
+            />
             <LocalTitle>{local.title}</LocalTitle>
             <LocalAddress>{local.address}</LocalAddress>
             <LocalLink

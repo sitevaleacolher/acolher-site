@@ -13,6 +13,15 @@ const nextConfig: NextConfig = {
       transpileTemplateLiterals: false,
     },
   },
+  images: {
+    domains: ["drive.google.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "drive.google.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
