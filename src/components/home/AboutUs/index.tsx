@@ -1,27 +1,48 @@
 "use client";
 
-import { Grupo, Grupo2 } from "@/assets";
 import { AboutUsContainer, CardsContainers } from "./styles";
 
 import { Card, Section, SlideShow } from "@/components";
 import { theme } from "@/styles/theme";
 
-export const AboutUs = ({ id }: { id: string }) => {
+interface AboutUsProps {
+  id: string;
+  data: [
+    {
+      "Carrosel de imagens": string;
+      Missão: string;
+      "Quem Somos": string;
+      Valores: string;
+    }
+  ];
+}
+
+export const AboutUs = ({ id, data }: AboutUsProps) => {
+  const carouselImages = data
+    .map((item) => {
+      const url = item["Carrosel de imagens"];
+      if (!url) return null;
+
+      const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+      if (!match) return null;
+
+      const id = match[1];
+      return `/api/image?id=${id}`;
+    })
+    .filter((url): url is string => Boolean(url));
+
   const cardsData = [
     {
       title: "QUEM SOMOS",
-      content:
-        "Somos voluntários unidos em um só Deus, um só propósito e um só espírito, juntos espalhando amor.",
+      content: data[0]?.["Quem Somos"] || "Informação não disponível.",
     },
     {
       title: "MISSÃO",
-      content:
-        "Prestar assistência fraterna a moradores em situação de rua e famílias menos favorecidas, com alimentação, cestas básicas e outros.",
+      content: data[0]?.Missão || "Informação não disponível.",
     },
     {
       title: "VALORES",
-      content:
-        "Caridade, empatia, humildade, respeito e solidariedade a todos que carecem de ajuda.",
+      content: data[0]?.Valores || "Informação não disponível.",
     },
   ];
 
@@ -34,7 +55,7 @@ export const AboutUs = ({ id }: { id: string }) => {
       id={id}
     >
       <AboutUsContainer>
-        <SlideShow images={[Grupo.src, Grupo2.src]} />
+        <SlideShow images={carouselImages} />
 
         <CardsContainers>
           {cardsData.map((card, index) => (

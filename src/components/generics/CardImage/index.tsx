@@ -16,7 +16,7 @@ interface CardProps {
 export default function CardImage({ title, content, image }: CardProps) {
   return (
     <CardContainer>
-      <ImgStyled src={image} alt={title} />
+      <ImgStyled src={image} alt={title} width={450} height={320} />
 
       <TextWrapper>
         <Title>{title}</Title>

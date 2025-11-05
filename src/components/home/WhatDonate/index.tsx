@@ -1,39 +1,44 @@
 "use client";
 
-import { WhatDonateContainer, ItemContainer } from "./styles";
+import { WhatDonateContainer } from "./styles";
 
-import { Card, Section, CardImage } from "@/components";
+import { Section, CardImage } from "@/components";
 import { theme } from "@/styles/theme";
 
-import { Grupo, Grupo2 } from "@/assets";
+import { StaticImageData } from "next/image";
 
-export const WhatDonate = ({ id }: { id: string }) => {
-  const cardsData = [
+interface WhatDonateProps {
+  id: string;
+  data: [
     {
-      title: "Itens de cesta básica",
-      content:
-        "Arroz, feijão, açucar, óleo, fubá, macarrão, canjiquinha, pó de café, farinha de mandioca, sal, biscoito e leite.",
-      image: Grupo,
-    },
-    {
-      title: "Produtos de higiene pessoal",
-      content:
-        "Absorvente, fralda infantil e geriatrica, sabonete, escova de dente, creme dental, papel higiênico,luva, touca descartável.",
-      image: Grupo2,
-    },
-    {
-      title: "Produtos de limpeza",
-      content:
-        "Caridade, empatia, humildade, respeito e solidariedade a todos que carecem de ajuda.",
-      image: Grupo,
-    },
-    {
-      title: "Qualquer quantia em dinheiro",
-      content:
-        "Você também pode doar qualquer quantia em dinheiro escaneando o Código QR ao lado, ou doando pela chave PIX abaixo.<br/> Nome: <strong>RAUL PIMENTA DA CUNHA PEREIRA</strong> <br/>Chave:<strong> acolhervaledoaco@gmail.com</strong>",
-      image: Grupo2,
-    },
+      Titulo: string;
+      Descrição: string;
+      Imagem: string;
+    }
   ];
+}
+
+export const WhatDonate = ({ id, data }: WhatDonateProps) => {
+  const cardsData = data.map((donate) => {
+    const url = donate.Imagem;
+    let imagem: string | StaticImageData = "";
+
+    if (url) {
+      const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+      if (match) {
+        const id = match[1];
+        imagem = `/api/image?id=${id}`;
+      } else {
+        imagem = url;
+      }
+    }
+
+    return {
+      title: donate.Titulo,
+      content: donate.Descrição,
+      image: imagem,
+    };
+  });
 
   return (
     <Section
@@ -46,7 +51,7 @@ export const WhatDonate = ({ id }: { id: string }) => {
       <WhatDonateContainer>
         {cardsData.map((card, index) => (
           <CardImage
-            key={card.title}
+            key={`${card.title} + ${index}`}
             title={card.title}
             content={card.content}
             image={card.image}

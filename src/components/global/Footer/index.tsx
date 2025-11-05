@@ -11,9 +11,18 @@ import { Logo } from "@/assets";
 
 import Image from "next/image";
 
-const Footer = ({ id }: { id: string }) => {
+interface FooterProps {
+  id: string;
+  data: [
+    {
+      "Endereço do rodape": string;
+    }
+  ];
+}
+
+const Footer = ({ id, data }: FooterProps) => {
   const endSpreadsheet =
-    "Rua Exemplo, 123 - Bairro, Cidade - UF, CEP 00000-000";
+    data[0]?.["Endereço do rodape"] || "Informação não disponível.";
   return (
     <FooterContent id={id}>
       <DataWrapper>
